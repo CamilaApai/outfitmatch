@@ -1,11 +1,22 @@
 import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-homepage',
-  imports: [],
+  imports: [NgIf],
+  standalone: true,  
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.css'
+  styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
 
+  showUploadPopup = false;
+
+  openUploadWindow() {
+    this.showUploadPopup = true;
+  }
+
+  closeUploadWindow() {
+    this.showUploadPopup = false;
+  }
 }

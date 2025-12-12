@@ -1,3 +1,11 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+
+import { HomepageComponent } from './homepage/homepage.component';
+
+export const routes: Routes = [
+  { path: '', component: HomepageComponent },        // Homepage component as the default route
+  { path: 'homepage', component: HomepageComponent } // Homepage component route
+];
+
+

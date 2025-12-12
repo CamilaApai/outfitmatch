@@ -1,0 +1,123 @@
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* HERO BANNER */
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("/assets/banner.png");
+
+  height: 100vh; /* altura visible (100% pantalla) */
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HERO TEXT */
+.hero-text {
+  text-align: center;
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-text button,
+button {
+  padding: 10px;
+  background: #882361;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.hero-text button:hover,
+button:hover {
+  background: #ad3181;
+  transform: translateY(-2px);
+}
+
+/* POPUP */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* Caja blanca */
+.popup {
+  background: rgb(125, 122, 122);
+  padding: 20px;
+  width: 400px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+
+
+/*EDIT*/
+
+/* FEATURES SECTION */
+.features-section {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+  }
+  
+  /* CARD STYLE */
+  .feature-card {
+    background: #ffffff;
+    width: 280px;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* CARD HOVER EFFECT */
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  }
+  
+  /* ICON STYLE */
+  .feature-card img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  
+  .feature-card p {
+    font-size: 0.95rem;
+    color: #444;
+  }
+  

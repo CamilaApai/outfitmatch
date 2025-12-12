@@ -1,1 +1,48 @@
-<p>homepage works!</p>
+  <!-- HERO SECTION -->
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>OutfitMatch</h1>
+    <p>Create outfits. Upload clothes. Build your style.</p>
+
+    <button (click)="openUploadWindow()">Add Clothes</button>
+
+    <!-- POPUP -->
+    <div class="popup-overlay" *ngIf="showUploadPopup">
+      <div class="popup">
+        <h2>Upload Clothing Item</h2>
+        <p>Text</p>
+        <input type="file" />
+        <p>Filter</p>
+
+        <button (click)="closeUploadWindow()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- FEATURES SECTION -->
+<div class="features-section">
+
+  <div class="feature-card">
+    <img src="assets/upload.png" alt="Upload Clothes">
+    <h3>Upload Clothes</h3>
+    <p>Easily upload photos of your clothing items to your digital closet.</p>
+  </div>
+
+  <div class="feature-card">
+    <img src="assets/closet.png" alt="Organize Closet">
+    <h3>Organize Your Closet</h3>
+    <p>Categorize and sort your wardrobe by type, color, or season.</p>
+  </div>
+
+  <div class="feature-card">
+    <img src="assets/outfit.png" alt="Create Outfits">
+    <h3>Create Outfits</h3>
+    <p>Mix and match items to build outfits for any occasion.</p>
+  </div>
+
+</div>
+
+
+<!-- EDIT -->
+<a href="VIDEO_LINK_HERE" target="_blank"> Watch Demo Video </a> 

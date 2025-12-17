@@ -1,0 +1,34 @@
+<!-- HERO SECTION -->
+<div class="hero-image">
+  <div class="hero-text">
+    <h1>OutfitMatch</h1>
+    <p>Create outfits. Upload clothes. Build your style.</p>
+    <button (click)="openUploadWindow()">Add Clothes</button>
+    <a href="https://www.loom.com/share/fddc0b29e9394ed9a99201d973216efe" target="_blank"> Watch Demo Video </a>
+  </div>
+</div>
+
+<!-- FEATURES SECTION -->
+<div class="features-section">
+  <div class="feature-card">
+    <img src="assets/upload.png" alt="Upload Clothes" />
+    <h2>Upload Clothes</h2>
+    <p>Easily upload photos of your clothing items to your digital closet.</p>
+  </div>
+  <div class="feature-card">
+    <img src="assets/closet.png" alt="Organize Closet" />
+    <h2>Organize Your Closet</h2>
+    <p>Categorize and sort your wardrobe by type, color, or season.</p>
+  </div>
+  <div class="feature-card">
+    <img src="assets/outfit.png" alt="Create Outfits" />
+    <h2>Create Outfits</h2>
+    <p>Mix and match items to build outfits for any occasion.</p>
+  </div>
+</div>
+
+<!-- Upload Modal -->
+<app-upload-modal
+  *ngIf="showModal"
+  (close)="closeUploadWindow()"
+></app-upload-modal>

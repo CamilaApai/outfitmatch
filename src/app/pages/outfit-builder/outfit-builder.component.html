@@ -1,0 +1,44 @@
+<div class="build-outfit-page">
+  <h1>Build Your Outfit</h1>
+
+  <!-- Create outfit -->
+  <h2>Choose a Name</h2>
+
+  <input type="text" placeholder="Outfit Name" aria-label="Outfit Name" [(ngModel)]="newOutfitName" />
+
+  <!-- Items -->
+  <h2>Select Items</h2>
+
+  <div class="items-grid">
+    <div class="item-card" *ngFor="let item of clothingItems" [class.selected]="selectedItems.includes(item.id)"
+      (click)="toggleSelection(item.id)">
+      <img *ngIf="item.filename" [src]="item.filename" alt="clothing item" />
+
+      <p>{{ item.name || "Unnamed" }}</p>
+      <p class="item-meta">
+        {{ item.category }} • {{ item.colorTag }} •
+        {{ item.season || "All seasons" }}
+      </p>
+    </div>
+  </div>
+
+  <button (click)="createOutfit()">
+    {{ editingOutfit ? "Update Outfit" : "Create Outfit" }}
+  </button>
+
+  <!-- Existing outfits -->
+  <h2>Saved Outfits</h2>
+
+  <div class="outfits-grid">
+    <div class="outfit-card" *ngFor="let outfit of outfits">
+      <h3>{{ outfit.name }}</h3>
+
+      <div class="outfit-items">
+        <img *ngFor="let itemId of outfit.itemIds" [src]="getItemImage(itemId)" alt="outfit item" />
+      </div>
+
+      <button (click)="editOutfit(outfit)">Edit</button>
+      <button (click)="deleteOutfit(outfit.id)">Delete</button>
+    </div>
+  </div>
+</div>

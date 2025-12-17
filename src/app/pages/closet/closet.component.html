@@ -1,0 +1,77 @@
+<div class="closet-container">
+  <h2>My Closet</h2>
+
+  <!-- Upload -->
+  <button class="upload-btn" (click)="openUploadModal()">
+    Add Clothing Item
+  </button>
+
+  <app-upload-modal
+    *ngIf="showUploadModal"
+    [itemToEdit]="editingItem"
+    (close)="closeUploadModal($event)">
+  </app-upload-modal>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <div class="filter-group">
+      <label>Category</label>
+      <select [(ngModel)]="filterCategory">
+        <option value="">All</option>
+        <option value="top">Top</option>
+        <option value="bottom">Bottom</option>
+        <option value="fullbody">Full Body</option>
+        <option value="shoes">Shoes</option>
+        <option value="accessory">Accessory</option>
+      </select>
+    </div>
+  
+    <div class="filter-group">
+      <label>Color</label>
+      <select [(ngModel)]="filterColor">
+        <option value="">All</option>
+        <option *ngFor="let color of COLORS" [value]="color">
+          {{ color | titlecase }}
+        </option>
+      </select>
+    </div>
+  
+    <div class="filter-group">
+      <label>Season</label>
+      <select [(ngModel)]="filterSeason">
+        <option value="">All</option>
+        <option value="summer">Summer</option>
+        <option value="winter">Winter</option>
+        <option value="spring">Spring</option>
+        <option value="fall">Fall</option>
+        <option value="all">All Seasons</option>
+      </select>
+    </div>
+  </div>
+  
+
+  <!-- GRID OF ITEMS -->
+  <div class="items-grid">
+    <div *ngFor="let item of filteredItems" class="item-card">
+      
+      <!-- IMAGE -->
+      <img [src]="item.filename" alt="{{ item.category }}" />
+
+      <!-- INFO -->
+      <div class="item-info">
+        <p class="item-name">{{ item.name || 'Unnamed item' }}</p>
+        <p class="item-meta">
+          {{ item.category }} • {{ item.colorTag }} •
+          {{ item.season || 'All seasons' }}
+        </p>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="item-actions">
+        <button (click)="editItem(item)">Edit</button>
+        <button (click)="deleteItem(item.id)">Delete</button>
+      </div>
+
+    </div>
+  </div>
+</div>

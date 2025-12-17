@@ -1,0 +1,75 @@
+<div class="overlay">
+  <div class="modal">
+    <h2>{{ itemToEdit ? 'Edit Clothing Item' : 'Add Clothing Item' }}</h2>
+
+    <!-- Preview -->
+    <div *ngIf="previewImage" class="image-preview">
+      <img [src]="previewImage" alt="Preview" />
+    </div>
+
+    <!-- Image upload -->
+    <input
+      type="file"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+      style="display: none;"
+      #fileInput
+    />
+    <button class="secondary-btn" (click)="fileInput.click()">
+      Choose Image
+    </button>
+
+    <!-- Name -->
+    <div class="form-group">
+      <label>Name</label>
+      <input
+        type="text"
+        placeholder="e.g. Black winter shoes"
+        [(ngModel)]="itemName"
+      />
+    </div>
+
+    <!-- Category -->
+    <div class="form-group">
+      <label>Category</label>
+      <select [(ngModel)]="selectedCategory">
+        <option value="">Select one</option>
+        <option value="top">Top</option>
+        <option value="bottom">Bottom</option>
+        <option value="fullbody">Full Body</option>
+        <option value="shoes">Shoes</option>
+        <option value="accessory">Accessory</option>
+      </select>
+    </div>
+
+    <!-- Color -->
+    <div class="form-group">
+      <label>Color</label>
+      <select [(ngModel)]="selectedColor">
+        <option value="">Select one</option>
+        <option *ngFor="let color of COLORS" [value]="color">
+          {{ color | titlecase }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Season -->
+    <div class="form-group">
+      <label>Season</label>
+      <select [(ngModel)]="selectedSeason">
+        <option value="">Select one</option>
+        <option value="summer">Summer</option>
+        <option value="winter">Winter</option>
+        <option value="spring">Spring</option>
+        <option value="fall">Fall</option>
+        <option value="all">All Seasons</option>
+      </select>
+    </div>
+
+    <!-- Buttons -->
+    <div class="modal-actions">
+      <button class="primary-btn" (click)="saveItem()">Save</button>
+      <button class="danger-btn" (click)="cancel()">Close</button>
+    </div>
+  </div>
+</div>

@@ -1,22 +1,23 @@
+// homepage.component.ts
 import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
+import { UploadModalComponent } from '../../components/upload-modal/upload-modal.component';
 
 @Component({
   selector: 'app-homepage',
-  imports: [NgIf],
-  standalone: true,  
+  standalone: true,
+  imports: [NgIf, UploadModalComponent],
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
-
-  showUploadPopup = false;
+  showModal = false;
 
   openUploadWindow() {
-    this.showUploadPopup = true;
+    this.showModal = true;
   }
 
   closeUploadWindow() {
-    this.showUploadPopup = false;
+    this.showModal = false;
   }
 }

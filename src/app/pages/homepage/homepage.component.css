@@ -7,8 +7,7 @@ h1 {
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url("/assets/banner.png");
-
-  height: 100vh; /* altura visible (100% pantalla) */
+  height: 100vh;
   background-position: center;
   background-size: cover;
   display: flex;
@@ -64,7 +63,7 @@ button:hover {
   z-index: 10;
 }
 
-/* Caja blanca */
+/* POPUP */
 .popup {
   background: rgb(125, 122, 122);
   padding: 20px;
@@ -74,50 +73,57 @@ button:hover {
   font-size: 1rem;
 }
 
-
-
 /*EDIT*/
 
 /* FEATURES SECTION */
 .features-section {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    padding: 50px 20px;
-    flex-wrap: wrap;
-  }
-  
-  /* CARD STYLE */
-  .feature-card {
-    background: #ffffff;
-    width: 280px;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* CARD HOVER EFFECT */
-  .feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
-  }
-  
-  /* ICON STYLE */
-  .feature-card img {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 15px;
-  }
-  
-  .feature-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-  }
-  
-  .feature-card p {
-    font-size: 0.95rem;
-    color: #444;
-  }
-  
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 50px 20px;
+  flex-wrap: wrap;
+}
+
+/* CARD STYLE */
+.feature-card {
+  width: 280px;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* CARD HOVER EFFECT */
+.feature-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  filter: brightness(1.2);
+}
+
+/* ICON STYLE */
+.feature-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.feature-card h2, a {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+}
+
+/* DEMO VIDEO */
+a {
+  text-decoration: none;
+  color: #ad3181;
+  text-align: center;
+  justify-content:center;
+  padding: 20px 20px;
+ 
+}

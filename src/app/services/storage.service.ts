@@ -6,9 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 const ITEMS_KEY = 'om_items_v1';
 const OUTFITS_KEY = 'om_outfits_v1';
 
-/* ------------------------------
-   DEFAULT ITEMS
--------------------------------- */
+// DEFAULT ITEMS
 const DEFAULT_ITEMS: ClothingItem[] = [
   {
     id: 'default-top-1',
@@ -121,9 +119,7 @@ export class StorageService {
     this.initializeDefaultItems();
   }
 
-  /* ------------------------------
-     DEFAULT ITEMS INIT
-  -------------------------------- */
+  // DEFAULT ITEMS INITIALIZATION
   private initializeDefaultItems() {
     const existing = this.loadItems();
     const hasDefaults = existing.some(item => item.isDefault);
@@ -133,9 +129,7 @@ export class StorageService {
     }
   }
 
-  /* ------------------------------
-     CLOTHING ITEMS
-  -------------------------------- */
+  // CLOTHING ITEMS
   loadItems(): ClothingItem[] {
     const raw = localStorage.getItem(ITEMS_KEY);
     return raw ? JSON.parse(raw) : [];
@@ -176,9 +170,7 @@ export class StorageService {
     this.saveItems(items);
   }
 
-  /* ------------------------------
-     OUTFITS
-  -------------------------------- */
+  // OUTFITS
   loadOutfits(): Outfit[] {
     const raw = localStorage.getItem(OUTFITS_KEY);
     return raw ? JSON.parse(raw) : [];

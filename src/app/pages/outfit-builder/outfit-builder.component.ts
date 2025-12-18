@@ -38,7 +38,7 @@ export class BuildOutfitComponent {
     this.outfits = this.storage.loadOutfits();
   }
 
-  // Selección de items
+  // Item selection
   toggleSelection(itemId: string) {
     if (this.selectedItems.includes(itemId)) {
       this.selectedItems = this.selectedItems.filter(id => id !== itemId);
@@ -47,7 +47,7 @@ export class BuildOutfitComponent {
     }
   }
 
-  // Crear o actualizar outfit
+  // Create / Edit Outfit
   createOutfit() {
     if (!this.selectedItems.length || !this.newOutfitName.trim()) {
       alert('Choose some items and provide a name for the outfit.');
@@ -55,13 +55,13 @@ export class BuildOutfitComponent {
     }
 
     if (this.editingOutfit) {
-      // editar
+      // Edit
       this.editingOutfit.itemIds = [...this.selectedItems];
       this.editingOutfit.name = this.newOutfitName;
       this.storage.updateOutfit(this.editingOutfit);
       this.editingOutfit = null;
     } else {
-      // crear
+      // Create
       this.storage.addOutfit(this.selectedItems, this.newOutfitName);
     }
 

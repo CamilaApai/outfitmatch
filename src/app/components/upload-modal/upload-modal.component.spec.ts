@@ -1,8 +1,8 @@
-// upload-modal.component.ts
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { StorageService } from '../../services/storage.service';
+import { ClothingItem } from '../../models/clothing-item.model';
 
 @Component({
   selector: 'app-upload-modal',
@@ -12,22 +12,15 @@ import { StorageService } from '../../services/storage.service';
   styleUrls: ['./upload-modal.component.css']
 })
 export class UploadModalComponent {
-cancel: any;
-cancel() {
-throw new Error('Method not implemented.');
-}
-COLORS: any;
-  selectedSeason: any;
-itemName: any;
-itemToEdit: any;
-cancel() {
-throw new Error('Method not implemented.');
-}
-  @Output() close = new EventEmitter<void>();
+
+  @Input() itemToEdit?: ClothingItem;
+  @Output() close = new EventEmitter<boolean>();
 
   previewImage: string | null = null;
   selectedCategory = '';
   selectedColor = '';
+  selectedSeason = '';
+  itemName = '';
 
   constructor(private storageService: StorageService) {}
 
@@ -36,12 +29,19 @@ throw new Error('Method not implemented.');
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = () => this.previewImage = reader.result as string;
+    reader.onload = () => {
+      this.previewImage = reader.result as string;
+    };
     reader.readAsDataURL(file);
   }
 
   saveItem() {
-    if (!this.previewImage || !this.selectedCategory || !this.selectedColor || !this.selectedSeason) {
+    if (
+      !this.previewImage ||
+      !this.selectedCategory ||
+      !this.selectedColor ||
+      !this.selectedSeason
+    ) {
       alert('Complete all fields');
       return;
     }
@@ -51,11 +51,14 @@ throw new Error('Method not implemented.');
       category: this.selectedCategory,
       colorTag: this.selectedColor,
       season: this.selectedSeason,
-      name: this.selectedCategory + ' Item',
+      name: this.itemName || 'Unnamed item',
       isDefault: false
     });
 
-    alert('Item saved ✔');
-    this.close.emit();
+    this.close.emit(true);
+  }
+
+  cancel() {
+    this.close.emit(false);
   }
 }

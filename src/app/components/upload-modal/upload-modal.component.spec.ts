@@ -11,23 +11,25 @@ import { ClothingItem } from '../../models/clothing-item.model';
   templateUrl: './upload-modal.component.html',
   styleUrls: ['./upload-modal.component.css']
 })
-export class UploadModalComponent {
 
+// UploadModalComponent allows users to upload and categorize clothing items.
+export class UploadModalComponent {
   @Input() itemToEdit?: ClothingItem;
   @Output() close = new EventEmitter<boolean>();
 
+  // State variables for the component
   previewImage: string | null = null;
   selectedCategory = '';
   selectedColor = '';
   selectedSeason = '';
   itemName = '';
+  constructor(private storageService: StorageService) { }
 
-  constructor(private storageService: StorageService) {}
-
+  // Handles file selection and generates a preview image.
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (!file) return;
-
+    //  Generate a preview of the selected image
     const reader = new FileReader();
     reader.onload = () => {
       this.previewImage = reader.result as string;
@@ -35,6 +37,7 @@ export class UploadModalComponent {
     reader.readAsDataURL(file);
   }
 
+  // Saves the new clothing item to storage.
   saveItem() {
     if (
       !this.previewImage ||
@@ -46,6 +49,7 @@ export class UploadModalComponent {
       return;
     }
 
+    //  Add the new item to storage
     this.storageService.addItem({
       filename: this.previewImage,
       category: this.selectedCategory,
@@ -58,6 +62,7 @@ export class UploadModalComponent {
     this.close.emit(true);
   }
 
+  // Cancels the upload and closes the modal.
   cancel() {
     this.close.emit(false);
   }

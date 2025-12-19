@@ -6,58 +6,56 @@
     Add Clothing Item
   </button>
 
+  <!-- Upload Modal -->
   <app-upload-modal
     *ngIf="showUploadModal"
     [itemToEdit]="editingItem"
     (close)="closeUploadModal($event)">
   </app-upload-modal>
 
-  <!-- FILTERS -->
+  <!-- Category Filter -->
   <div class="filters">
     <div class="filter-group">
       <label>Category</label>
       <select [(ngModel)]="filterCategory">
         <option value="">All</option>
-        <option value="top">Top</option>
-        <option value="bottom">Bottom</option>
-        <option value="fullbody">Full Body</option>
-        <option value="shoes">Shoes</option>
-        <option value="accessory">Accessory</option>
-      </select>
+          <option *ngFor="let c of categories" [value]="c.value">
+            {{ c.label }}
+          </option>
+        </select>
     </div>
   
+      <!-- Color Filter -->
     <div class="filter-group">
       <label>Color</label>
       <select [(ngModel)]="filterColor">
         <option value="">All</option>
-        <option *ngFor="let color of COLORS" [value]="color">
-          {{ color | titlecase }}
+        <option *ngFor="let c of colors" [value]="c.value">
+          {{ c.label }}
         </option>
       </select>
     </div>
   
+      <!-- Season Filter -->
     <div class="filter-group">
       <label>Season</label>
       <select [(ngModel)]="filterSeason">
         <option value="">All</option>
-        <option value="summer">Summer</option>
-        <option value="winter">Winter</option>
-        <option value="spring">Spring</option>
-        <option value="fall">Fall</option>
-        <option value="all">All Seasons</option>
-      </select>
+        <option *ngFor="let s of seasons" [value]="s.value">
+          {{ s.label }}
+        </option>
+      </select>     
     </div>
-  </div>
   
 
-  <!-- GRID OF ITEMS -->
+  <!-- Grid of Items -->
   <div class="items-grid">
     <div *ngFor="let item of filteredItems" class="item-card">
       
-      <!-- IMAGE -->
+      <!-- Image -->
       <img [src]="item.filename" alt="{{ item.category }}" />
 
-      <!-- INFO -->
+      <!-- Info-->
       <div class="item-info">
         <p class="item-name">{{ item.name || 'Unnamed item' }}</p>
         <p class="item-meta">
@@ -66,7 +64,7 @@
         </p>
       </div>
 
-      <!-- ACTIONS -->
+      <!-- Actions -->
       <div class="item-actions">
         <button (click)="editItem(item)">Edit</button>
         <button (click)="deleteItem(item.id)">Delete</button>

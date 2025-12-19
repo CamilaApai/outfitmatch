@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { StorageService } from '../../services/storage.service';
 import { ClothingItem } from '../../models/clothing-item.model';
 
+
 @Component({
   selector: 'app-upload-modal',
   standalone: true,
@@ -19,10 +20,13 @@ export class UploadModalComponent {
 
   // State variables for the component
   previewImage: string | null = null;
-  selectedCategory = '';
-  selectedColor = '';
-  selectedSeason = '';
+  filterCategory = '';
+  filterColor = '';
+  filterSeason = '';
   itemName = '';
+categories: any;
+colors: any;
+seasons: any;
   constructor(private storageService: StorageService) { }
 
   // Handles file selection and generates a preview image.
@@ -41,9 +45,9 @@ export class UploadModalComponent {
   saveItem() {
     if (
       !this.previewImage ||
-      !this.selectedCategory ||
-      !this.selectedColor ||
-      !this.selectedSeason
+      !this.filterCategory ||
+      !this.filterColor ||
+      !this.filterSeason
     ) {
       alert('Complete all fields');
       return;
@@ -52,9 +56,9 @@ export class UploadModalComponent {
     //  Add the new item to storage
     this.storageService.addItem({
       filename: this.previewImage,
-      category: this.selectedCategory,
-      colorTag: this.selectedColor,
-      season: this.selectedSeason,
+      category: this.filterCategory,
+      colorTag: this.filterColor,
+      season: this.filterSeason,
       name: this.itemName || 'Unnamed item',
       isDefault: false
     });

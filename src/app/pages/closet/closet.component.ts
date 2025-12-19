@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { StorageService } from '../../services/storage.service';
 import { UploadModalComponent } from '../../components/upload-modal/upload-modal.component';
 import { ClothingItem } from '../../models/clothing-item.model';
+import { CATEGORIES, COLORS, SEASONS } from '../../shared/filters-categories';
+
 
 @Component({
   selector: 'app-closet',
@@ -14,27 +16,13 @@ import { ClothingItem } from '../../models/clothing-item.model';
   styleUrls: ['./closet.component.css']
 })
 export class ClosetComponent {
-
   showUploadModal = false;
-
   filterCategory = '';
   filterSeason = '';
   filterColor = '';
-
-  readonly COLORS = [
-    'black',
-    'white',
-    'gray',
-    'brown',
-    'beige',
-    'red',
-    'blue',
-    'green',
-    'pink',
-    'yellow',
-    'purple'
-  ];
-
+  categories = CATEGORIES;
+  colors = COLORS;
+  seasons = SEASONS;
   constructor(private storage: StorageService) {}
 
   openUploadModal() {
@@ -65,7 +53,7 @@ export class ClosetComponent {
       const matchesSeason =
         !this.filterSeason ||
         season === this.filterSeason.toLowerCase() ||
-        season === 'all seasons';
+        season === 'All seasons';
   
       return matchesCategory && matchesColor && matchesSeason;
     });

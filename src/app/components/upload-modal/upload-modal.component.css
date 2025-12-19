@@ -36,14 +36,14 @@
 }
 
 /* FORM GROUP */
-.form-group {
+.filter-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 12px;
   text-align: left;
 }
 
-.form-group label {
+.filter-group label {
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 4px;
@@ -51,8 +51,8 @@
 }
 
 /* INPUTS & SELECTS */
-.form-group input,
-.form-group select {
+.filter-group input,
+.filter-group select {
   padding: 8px 10px;
   border-radius: 10px;
   border: 1.5px solid #ccc;
@@ -60,8 +60,8 @@
   transition: border 0.15s ease, box-shadow 0.15s ease;
 }
 
-.form-group input:focus,
-.form-group select:focus {
+.filter-group input:focus,
+.filter-group select:focus {
   outline: none;
   border-color: #ad3181;
   box-shadow: 0 0 0 2px rgba(173, 49, 129, 0.15);

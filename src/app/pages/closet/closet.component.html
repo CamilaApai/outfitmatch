@@ -1,5 +1,5 @@
 <div class="closet-container">
-  <h2>My Closet</h2>
+  <h1>My Closet</h1>
 
   <!-- Upload -->
   <button class="upload-btn" (click)="openUploadModal()">
@@ -10,7 +10,8 @@
   <app-upload-modal
     *ngIf="showUploadModal"
     [itemToEdit]="editingItem"
-    (close)="closeUploadModal($event)">
+    (close)="closeUploadModal($event)"
+  >
   </app-upload-modal>
 
   <!-- Category Filter -->
@@ -19,13 +20,13 @@
       <label>Category</label>
       <select [(ngModel)]="filterCategory">
         <option value="">All</option>
-          <option *ngFor="let c of categories" [value]="c.value">
-            {{ c.label }}
-          </option>
-        </select>
+        <option *ngFor="let c of categories" [value]="c.value">
+          {{ c.label }}
+        </option>
+      </select>
     </div>
-  
-      <!-- Color Filter -->
+
+    <!-- Color Filter -->
     <div class="filter-group">
       <label>Color</label>
       <select [(ngModel)]="filterColor">
@@ -35,8 +36,8 @@
         </option>
       </select>
     </div>
-  
-      <!-- Season Filter -->
+
+    <!-- Season Filter -->
     <div class="filter-group">
       <label>Season</label>
       <select [(ngModel)]="filterSeason">
@@ -44,32 +45,30 @@
         <option *ngFor="let s of seasons" [value]="s.value">
           {{ s.label }}
         </option>
-      </select>     
+      </select>
     </div>
-  
 
-  <!-- Grid of Items -->
-  <div class="items-grid">
-    <div *ngFor="let item of filteredItems" class="item-card">
-      
-      <!-- Image -->
-      <img [src]="item.filename" alt="{{ item.category }}" />
+    <!-- Grid of Items -->
+    <div class="items-grid">
+      <div *ngFor="let item of filteredItems" class="item-card">
+        <!-- Image -->
+        <img [src]="item.filename" alt="{{ item.category }}" />
 
-      <!-- Info-->
-      <div class="item-info">
-        <p class="item-name">{{ item.name || 'Unnamed item' }}</p>
-        <p class="item-info">
-          {{ item.category }} • {{ item.colorTag }} •
-          {{ item.season || 'all' }}
-        </p>
+        <!-- Info-->
+        <div class="item-info">
+          <p class="item-name">{{ item.name || "Unnamed item" }}</p>
+          <p class="item-info">
+            {{ item.category }} • {{ item.colorTag }} •
+            {{ item.season || "all" }}
+          </p>
+        </div>
+
+        <!-- Actions -->
+        <div class="item-actions">
+          <button (click)="editItem(item)">Edit</button>
+          <button (click)="deleteItem(item.id)">Delete</button>
+        </div>
       </div>
-
-      <!-- Actions -->
-      <div class="item-actions">
-        <button (click)="editItem(item)">Edit</button>
-        <button (click)="deleteItem(item.id)">Delete</button>
-      </div>
-
     </div>
   </div>
 </div>

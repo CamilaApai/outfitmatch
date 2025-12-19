@@ -6,14 +6,16 @@
 
   <input type="text" placeholder="Outfit Name" aria-label="Outfit Name" [(ngModel)]="newOutfitName" />
 
-  <!-- Items -->
-  <h2>Select Items</h2>
 
+  <h2>Select Items</h2>
+  <!-- Grid of Items -->
   <div class="items-grid">
     <div class="item-card" *ngFor="let item of clothingItems" [class.selected]="selectedItems.includes(item.id)"
       (click)="toggleSelection(item.id)">
+       <!-- Image -->
       <img *ngIf="item.filename" [src]="item.filename" alt="clothing item" />
 
+       <!-- Info-->
       <p>{{ item.name || "Unnamed" }}</p>
       <p class="item-info">
         {{ item.category }} • {{ item.colorTag }} •
@@ -22,6 +24,7 @@
     </div>
   </div>
 
+  <!-- Actions -->
   <button (click)="createOutfit()">
     {{ editingOutfit ? "Update Outfit" : "Create Outfit" }}
   </button>

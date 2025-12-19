@@ -77,7 +77,6 @@ input[type="text"]:focus {
 
 /* Buttons */
 button {
-  margin-top: 1.5rem;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   border: none;

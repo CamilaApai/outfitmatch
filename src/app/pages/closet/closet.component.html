@@ -38,7 +38,7 @@
     </div>
 
     <!-- Season Filter -->
-    <div class="filter-group">
+   <div class="filter-group">
       <label>Season</label>
       <select [(ngModel)]="filterSeason">
         <option value="">All</option>
@@ -47,17 +47,17 @@
         </option>
       </select>
     </div>
+  </div>
 
     <!-- Grid of Items -->
     <div class="items-grid">
       <div *ngFor="let item of filteredItems" class="item-card">
-        <!-- Image -->
         <img [src]="item.filename" alt="{{ item.category }}" />
 
         <!-- Info-->
         <div class="item-info">
           <p class="item-name">{{ item.name || "Unnamed item" }}</p>
-          <p class="item-info">
+          <p class="item-meta">
             {{ item.category }} • {{ item.colorTag }} •
             {{ item.season || "all" }}
           </p>
@@ -71,4 +71,3 @@
       </div>
     </div>
   </div>
-</div>

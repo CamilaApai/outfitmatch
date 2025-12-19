@@ -18,7 +18,6 @@ export class BuildOutfitComponent {
     const item = this.clothingItems.find(i => i.id === itemId);
     return item?.filename || '';
   }
-
   
   clothingItems: ClothingItem[] = [];
   outfits: Outfit[] = [];

@@ -1,8 +1,8 @@
 <div class="overlay">
   <div class="modal">
-    <h2>{{ itemToEdit ? 'Edit Clothing Item' : 'Add Clothing Item' }}</h2>
+    <h2>Add Clothing Item</h2>
 
-    <!-- Preview -->
+    <!-- Image Preview -->
     <div *ngIf="previewImage" class="image-preview">
       <img [src]="previewImage" alt="Preview" />
     </div>
@@ -12,10 +12,12 @@
       type="file"
       accept="image/*"
       (change)="onFileSelected($event)"
-      style="display: none;"
+      style="display: none"
       #fileInput
     />
-    <button class="secondary-btn" (click)="fileInput.click()">
+
+   <!-- Choose Image Button -->
+    <button class="chooseImage-btn" (click)="fileInput.click()">
       Choose Image
     </button>
 
@@ -47,9 +49,17 @@
       <label>Color</label>
       <select [(ngModel)]="selectedColor">
         <option value="">Select one</option>
-        <option *ngFor="let color of COLORS" [value]="color">
-          {{ color | titlecase }}
-        </option>
+        <option value="black">Black</option>
+        <option value="blue">Blue</option>
+        <option value="brown">Brown</option>
+        <option value="gray">Gray</option>
+        <option value="green">Green</option>
+        <option value="orange">Orange</option>
+        <option value="pink">Pink</option>
+        <option value="purple">Purple</option>
+        <option value="red">Red</option>
+        <option value="white">White</option>
+        <option value="yellow">Yellow</option>
       </select>
     </div>
 
@@ -63,13 +73,14 @@
         <option value="spring">Spring</option>
         <option value="fall">Fall</option>
         <option value="all">All Seasons</option>
+        
       </select>
     </div>
 
     <!-- Buttons -->
     <div class="modal-actions">
-      <button class="primary-btn" (click)="saveItem()">Save</button>
-      <button class="danger-btn" (click)="cancel()">Close</button>
+      <button class="save-btn" (click)="saveItem()">Save</button>
+      <button class="close-btn" (click)="cancel()">Close</button>
     </div>
   </div>
 </div>

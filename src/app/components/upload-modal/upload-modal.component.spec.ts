@@ -12,6 +12,10 @@ import { StorageService } from '../../services/storage.service';
   styleUrls: ['./upload-modal.component.css']
 })
 export class UploadModalComponent {
+cancel: any;
+cancel() {
+throw new Error('Method not implemented.');
+}
 COLORS: any;
   selectedSeason: any;
 itemName: any;

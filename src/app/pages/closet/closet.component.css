@@ -2,6 +2,7 @@
   padding: 20px;
 }
 
+/* Items Grid */
 .items-grid {
   display: flex;
   flex-wrap: wrap;

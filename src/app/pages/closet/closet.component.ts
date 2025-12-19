@@ -53,7 +53,7 @@ export class ClosetComponent {
       const matchesSeason =
         !this.filterSeason ||
         season === this.filterSeason.toLowerCase() ||
-        season === 'All seasons';
+        season === 'all';
   
       return matchesCategory && matchesColor && matchesSeason;
     });

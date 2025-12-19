@@ -26,6 +26,5 @@ export const CATEGORIES = [
     { value: 'winter', label: 'Winter' },
     { value: 'spring', label: 'Spring' },
     { value: 'fall', label: 'Fall' },
-    { value: 'all', label: 'All Seasons' }
   ];
   

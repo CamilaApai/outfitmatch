@@ -14,4 +14,8 @@ import { FooterComponent } from './components/footer/footer.component';
   `
 })
 
-export class AppComponent {}
+export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+}

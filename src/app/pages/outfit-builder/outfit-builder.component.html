@@ -15,9 +15,9 @@
       <img *ngIf="item.filename" [src]="item.filename" alt="clothing item" />
 
       <p>{{ item.name || "Unnamed" }}</p>
-      <p class="item-meta">
+      <p class="item-info">
         {{ item.category }} • {{ item.colorTag }} •
-        {{ item.season || "All seasons" }}
+        {{ item.season || "all" }}
       </p>
     </div>
   </div>
